@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Todos los productos{% endblock %}
+{% block content %}
+
+
+<!-- Section-->
+
+
+<div class="container px-4 px-lg-5  mt-5">
+  
+
+  <div class="display-6 m-4">Panel de control</div>  <a href="http://127.0.0.1:8000/panel/crear/" class="btn btn-success" role="button">Agregar Nuevo Producto</a>  
+
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Imagen</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Stock</th>
+
+            <th scope="col">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for pr in productos %}
+          <tr>
+            <th scope="row">{{pr.id}}</th>
+            <td>{{pr.nombre}}</td>
+            <td><img class='rounded 'width='45' height="45" src="/media/{{pr.imagen}}" alt="..." /></td>
+            <td>{{pr.categoria}}</td>
+            <td>{%if pr.stock == True%}<i class="bi bi-check" style="font-size: 2rem; color: green;"></i> {%else%} <i class="bi bi-x" style="font-size: 2rem; color: red"></i>{%endif%}</i></td>
+            <td> <a href="http://127.0.0.1:8000/panel/producto/{{pr.id}}" class="btn btn-info" role="button">Ver  </a> <a href="http://127.0.0.1:8000/panel/actualizar/{{pr.id}}" class="btn btn-primary" role="button">Actualizar</a> <a href="http://127.0.0.1:8000/panel/eliminar/{{pr.id}}" class="btn btn-danger" role="button">Eliminar</a> 
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Todos los productos{% endblock %}
+{% block content %}
+
+<div class="container d-flex justify-content-center px-4 ml-5  mt-5">
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="/media/{{producto.imagen}}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{producto.nombre}}</h5>
+          <hr>
+          <p class="card-text">{{producto.descripcion}}</p>
+          <p class="card-text">Valor por unidad: </i>{{producto.precio}}</p>
+
+          <p class="card-text"><small class="text-muted">Stock: {%if prodcuto.stock == true %}<i class="bi bi-check"></i> {%else%} <i class="bi bi-x"></i> {%endif%}</i></small></p> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
